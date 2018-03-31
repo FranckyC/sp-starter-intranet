@@ -1,0 +1,86 @@
+@import '../../styles/css/variables';
+
+#breadcrumb-nav {
+    
+    font-family: $font-primary;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    
+    #message {
+        
+        color: $warning-color;
+        padding-bottom: 10px;
+        flex: 1 1 0%;
+        -ms-flex: 1 1 0%;
+
+        i {
+            float: left;
+            color: $warning-color;
+            margin-right: 5px;
+        }
+    }
+    
+    ul {
+
+        display: flex;
+        display: -ms-flexbox;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        -ms-flex-pack: start;
+
+        padding: 0;
+        margin: 0;
+
+        li {
+            display: inline;
+            list-style: none;
+            list-style-type: none;
+
+            a {
+                text-decoration: underline;
+                color: $primary-color;
+            }
+
+            a:visited {
+                color: $primary-color;
+            }
+        }
+
+        li.is-selected {
+            a {
+                color: $text-color;
+                text-decoration: none;
+            }
+        }
+
+        li:not(:first-child):before {
+            content: "|";
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+
+        /* Small devices */
+        @media (max-width: 767px) { 
+
+            color: #000000;
+
+            li {
+                margin-top: 2px;
+                margin-bottom: 2px;
+            }
+
+            li.is-selected, li{
+                a, i, a:visited {
+                    color: #000;
+                }
+            }
+
+            li:not(:first-child):before {
+                margin-left: 2px;
+                margin-right: 2px;
+            }
+        }
+    }
+}

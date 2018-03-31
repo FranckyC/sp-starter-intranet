@@ -1,0 +1,67 @@
+@import 'variables';
+
+/* Important: these styles are only applied in display mode ! */
+.page-layout {
+
+    /* This values are used to determines whether or not the side bar should be hidden or not or page comments show be displayed
+    We use this system instead of making a REST query to the curent item to improve performances. Even if this is not very elegant,
+    a jQuery DOM manipulation is faster than a network query */
+    #hide-side-bar-hidden {
+        display: none;
+    }
+
+    #allow-page-comments-hidden {
+        display: none;
+    }
+
+    .line {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    #title {
+        font-size: 40px;
+        color: #000;
+        margin-bottom: 10px;
+        line-height: 1.0;
+        margin-bottom: 10px;
+        font-family: $font-primary;
+        font-weight: lighter;
+    }
+
+    /* Small devices */
+    @media (max-width: 767px) { 
+
+        #title {
+            font-size: 30px;
+            margin-bottom: 0;
+        }
+    }
+    
+    #news-categories {
+        height: 64px;
+        line-height: 64px;
+    }
+
+    #related-news {
+        border-top: 1px solid #D8D8D8;
+    }
+
+    /* Start: News Page Layout styles */
+    #page-image {
+        clear: both;
+
+        img {
+            padding-top: 30px;
+            padding-bottom: 20px;
+        }
+    }     
+    /* End: News Page Layout styles */
+
+    /* Start: Search Page Layout styles */
+    #Result {
+        min-height: 700px;
+    } 
+    /* End: Search Page Layout styles */   
+}

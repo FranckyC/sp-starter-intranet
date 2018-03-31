@@ -1,0 +1,15 @@
+@import '../../styles/css/variables';
+
+#header  {
+
+    font-family: $font-primary;
+    text-decoration: none;
+    color: $headerlinks-color;
+    display: flex;
+    display: -ms-flexbox;
+
+    > * {
+        display: flex;
+        display: -ms-flexbox;
+    }
+}

@@ -1,0 +1,120 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>Intranet Refinement Control</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:CompatibleManagedProperties msdt:dt="string"></mso:CompatibleManagedProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:MasterPageDescription msdt:dt="string">Refinement Control with MUI.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106601</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#Refinement;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+<mso:HtmlDesignConversionSucceeded msdt:dt="string">True</mso:HtmlDesignConversionSucceeded>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+<body> 
+    <div id="Control_Refinement">
+<!--#_ 
+
+	    var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId());
+	    var containerId = "IntranetRefinementControl_" + encodedId;
+
+        ctx.ClientControl.alternateRenderer = function(container, cntxt) {};
+        
+        AddPostRenderCallback(ctx, function() {	
+            
+            Intranet.Main.initDisplayTemplateViewModel(document.getElementById(containerId));
+           
+            // Add a toggle button for filters in mobile view.
+            var $ = Intranet.Main.jQuery();
+
+            // Check if we are in mobile view to display filters as collapsible
+            var isBtnVisible = $("#add-filters-btn").is(":visible");
+            if (isBtnVisible) {
+                $("#refinementPanel").addClass("collapse");
+            }
+
+            // Collapse events
+            $("#refinementPanel").on("hide.bs.collapse", function(event) {
+
+                var iconElt = $("[data-target='#" + event.target.id + "']").find("i");
+                if (iconElt) {
+                    iconElt.removeClass("fa-angle-up");
+                    iconElt.addClass("fa-angle-down");
+                    $("#add-filters-btn span").text(Intranet.Main.getResource("addFilters"));
+                }
+            });
+
+            $("#refinementPanel").on("show.bs.collapse", function(event) {
+
+                event.stopPropagation();
+
+                // Get the parent with the data-target attribute equals to my id.
+                var iconElt = $("[data-target='#" + event.target.id + "']").find("i");
+                if (iconElt) {
+                    iconElt.removeClass("fa-angle-down");
+                    iconElt.addClass("fa-angle-up");
+                    $("#add-filters-btn span").text(Intranet.Main.getResource("hideFilters"));
+                }
+            });
+        });
+_#-->
+        <div class="control-display-template">
+            <div data-bind="stopBinding: true">
+				<div id="_#=containerId=#_">
+
+            <div class="ms-ref-ctrl" id="Refinement" name="Control">
+                <button type="button" id="add-filters-btn" data-toggle="collapse" data-target="#refinementPanel" class="hidden-md hidden-sm hidden-lg" >
+                    <span data-bind="getResource: 'addFilters'"></span>
+                    <i class="fa fa-angle-down"></i>
+                </button>
+<!--#_ 
+            if(!$isNull(ctx.ClientControl)) {
+_#-->
+            <div id="refinementPanel">
+<!--#_ 
+                var rcs = ctx.ClientControl.get_selectedRefinementControls();
+                if(!$isEmptyArray(rcs)){
+                    for(var i = 0; i < rcs.length; i++){
+                        var rc = rcs[i];
+                        if(!$isNull(rc)){
+                            rc.containerId = ctx.ClientControl.get_nextUniqueId(); 
+_#-->
+                            <div class="ms-ref-refiner" id="_#= $htmlEncode(rc.containerId) =#_" name="Group" refinerName="_#= $htmlEncode(rc.propertyName) =#_"></div>
+<!--#_ 
+                        }
+                    }
+                }
+_#-->
+                <div id="_#= ctx.ClientControl.get_emptyRefinementMessageId() =#_" class="ms-alignCenter ms-hide search-no-result">
+<!--#_
+                    var emptyMessage = Intranet.Main.getResource("rf_EmptyRefinement");
+
+                    if ($isEmptyString(emptyMessage))
+                    {
+_#-->
+                        <div data-bind="getResource: 'rf_EmptyRefinement'"></div>
+<!--#_
+                    }
+                    else
+                    {
+_#-->
+                        _#= $htmlEncode(emptyMessage) =#_
+<!--#_
+                    }
+_#-->
+                </div>
+            </div>
+<!--#_
+            }
+_#-->
+            </div>
+        </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

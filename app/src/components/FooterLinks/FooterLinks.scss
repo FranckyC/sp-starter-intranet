@@ -1,0 +1,34 @@
+@import '../../styles/css/variables';
+
+/* Footer links */
+#footer-links {
+    
+    text-decoration: none;
+    min-width: 150px;
+    font-family: $footerlinks-fontfamily;
+    font-size: $footerlinks-font-size;
+    font-weight: 100;
+
+    ul {
+        margin: 0;
+        padding: 0;
+    }
+    
+    ul li {
+        color: $footerlinks-color;
+        display: inline-block;
+        list-style-type: none;
+        margin-right: 25px;
+        margin-left: 25px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+
+        i {
+            color: $navbar-l1-link-color;        
+        }
+
+        a {
+            color: #fff;
+        }
+    }
+}
