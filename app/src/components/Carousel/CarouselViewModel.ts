@@ -59,6 +59,8 @@ class CarouselViewModel {
                     const carousel = new Flickity(".carousel", {
                         adaptiveHeight: true,
                         imageLoaded: true,
+                        autoPlay: 1500,
+                        pauseAutoPlayOnHover: false,
                         lazyLoad: 1,
                         pageDots: false,
                         prevNextButtons: false,
