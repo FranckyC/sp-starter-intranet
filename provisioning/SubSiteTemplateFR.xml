@@ -13,7 +13,7 @@
     <pnp:ProvisioningTemplate ID="TEMPLATE-PNP-O365-STARTER-INTRANET" Version="1">
       <pnp:WebSettings RequestAccessEmail="someone@example.com" NoCrawl="false" WelcomePage="{parameter:PagesLibraryName}/Accueil.aspx" SiteLogo="" AlternateCSS="" MasterPageUrl="{masterpagecatalog}/seattle.master" CustomMasterPageUrl="{masterpagecatalog}/{parameter:CompanyName}/portal.master" />
       <pnp:Lists>
-        <pnp:ListInstance Title="Documents" Description="This system library was created by the Publishing feature to store documents that are used on pages in this site." DocumentTemplate="{site}/Documents/Forms/template.dotx" TemplateType="101" Url="Documents" EnableVersioning="true" EnableMinorVersions="true" EnableModeration="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" ContentTypesEnabled="true" EnableAttachments="false">
+        <pnp:ListInstance Title="Documents" Description="This system library was created by the Publishing feature to store documents that are used on pages in this site." DocumentTemplate="{site}/Documents/Forms/template.dotx" TemplateType="101" Url="Documents" EnableVersioning="true" EnableMinorVersions="true" EnableModeration="true" MinorVersionLimit="0" MaxVersionLimit="1" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-e717-4e80-aa17-d0c71b360101" ContentTypesEnabled="true" EnableAttachments="false">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x01010092206821AFF2CF42B50BA968DA7AE9E9" Default="true" />
             <pnp:ContentTypeBinding ContentTypeID="0x0101" />
@@ -81,7 +81,7 @@
             <pnp:FieldRef ID="1854bcb7-b187-4801-80a7-b576e26876a4" Name="IntranetDocumentDescription" DisplayName="Document Description" />
           </pnp:FieldRefs>
         </pnp:ListInstance>
-        <pnp:ListInstance Title="{parameter:PagesLibraryName}" Description="This system library was created by the Publishing feature to store pages that are created in this site." DocumentTemplate="" TemplateType="850" Url="Pages" EnableVersioning="true" EnableMinorVersions="true" EnableModeration="true" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="22a9ef51-737b-4ff2-9346-694633fe4416" ContentTypesEnabled="true" EnableAttachments="false" EnableFolderCreation="false">
+        <pnp:ListInstance Title="{parameter:PagesLibraryName}" Description="This system library was created by the Publishing feature to store pages that are created in this site." DocumentTemplate="" TemplateType="850" Url="Pages" EnableVersioning="true" EnableMinorVersions="true" EnableModeration="true" MinorVersionLimit="0" MaxVersionLimit="1" DraftVersionVisibility="0" TemplateFeatureID="22a9ef51-737b-4ff2-9346-694633fe4416" ContentTypesEnabled="true" EnableAttachments="false" EnableFolderCreation="false">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39000650D0E024D0AE42B88AF5AF825F709C01" Default="true"/>
             <pnp:ContentTypeBinding ContentTypeID="0x010100C568DB52D9D0A14D9B2FDCC96666E9F2007948130EC3DB064584E219954237AF39" />
@@ -162,10 +162,6 @@
             <pnp:FieldRef ID="543bc2cf-1f30-488e-8f25-6fe3b689d9ac" Name="PublishingRollupImage" DisplayName="Rollup Image" />
             <pnp:FieldRef ID="61cbb965-1e04-4273-b658-eedaa662f48d" Name="Audience" DisplayName="Target Audiences" />
             <pnp:FieldRef ID="50631c24-1371-4ecf-a5ae-ed41b03f4499" Name="PublishingIsFurlPage" DisplayName="Hide physical URLs from search" />
-            <pnp:FieldRef ID="ff92f929-d18b-46d4-9879-521378c689ef" Name="SeoBrowserTitle" DisplayName="Browser Title" />
-            <pnp:FieldRef ID="d83897e5-2430-4df7-8e5a-9bc06c664992" Name="SeoMetaDescription" DisplayName="Meta Description" />
-            <pnp:FieldRef ID="45ae2169-585c-440b-aa4c-1d5e981fbbe5" Name="SeoKeywords" DisplayName="Meta Keywords" />
-            <pnp:FieldRef ID="325c00dd-fd91-468b-81cf-5bb9951abba1" Name="RobotsNoIndex" DisplayName="Hide from Internet Search Engines" />
             <pnp:FieldRef ID="3de94b06-4120-41a5-b907-88773e493458" Name="PublishingPageImage" DisplayName="Page Image" />
             <pnp:FieldRef ID="f55c4d88-1f2e-4ad9-aaa8-819af4ee7ee8" Name="PublishingPageContent" DisplayName="Page Content" />
             <pnp:FieldRef ID="b3525efe-59b5-4f0f-b1e4-6e26cb6ef6aa" Name="SummaryLinks" DisplayName="Summary Links" />
@@ -189,7 +185,7 @@
             <pnp:FieldRef ID="feff03b1-9293-464c-bbbc-ff34ca32fd88" Name="IntranetContact" DisplayName="Page Contact(s)" />
           </pnp:FieldRefs>
         </pnp:ListInstance>
-        <pnp:ListInstance Title="Notifications" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Notifications" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Notifications/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Notifications/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Notifications/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=23" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+        <pnp:ListInstance Title="Notifications" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Notifications" MinorVersionLimit="0" MaxVersionLimit="1" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Notifications/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Notifications/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Notifications/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=23" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x010042631ED9023EA641A4E931E92ABC9FCE" Default="true" />
             <pnp:ContentTypeBinding ContentTypeID="0x0120" />
@@ -214,7 +210,7 @@
             <pnp:FieldRef ID="bb2914fe-28d9-4f86-bab1-a8540a941d08" Name="IntranetNotificationDescription" DisplayName="Notification description" />
           </pnp:FieldRefs>
         </pnp:ListInstance>
-        <pnp:ListInstance Title="Carrières" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Careers" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Careers/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Careers/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Careers/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=23" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+        <pnp:ListInstance Title="Carrières" Description="" DocumentTemplate="" TemplateType="100" Url="Lists/Careers" MinorVersionLimit="0" MaxVersionLimit="1" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-de22-43b2-a848-c05709900100" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Careers/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Careers/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Careers/NewForm.aspx" ImageUrl="/_layouts/15/images/itgen.png?rev=23" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x0100AE5B5334E4CEC54494659808529B5D44" Default="true" />
             <pnp:ContentTypeBinding ContentTypeID="0x0120" />
@@ -240,7 +236,7 @@
             <pnp:FieldRef ID="2f72cd43-ff75-4f86-b25c-fbbe1c09f84f" Name="IntranetPositionDescription" DisplayName="Position description" />
           </pnp:FieldRefs>
         </pnp:ListInstance>
-        <pnp:ListInstance Title="Commentaires" Description="" DocumentTemplate="" TemplateType="108" Url="Lists/Comments" MinorVersionLimit="0" MaxVersionLimit="0" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-6a49-43fa-b535-d15c05500108" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Comments/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Comments/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Comments/NewForm.aspx" ImageUrl="/_layouts/15/images/itdisc.png?rev=44" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
+        <pnp:ListInstance Title="Commentaires" Description="" DocumentTemplate="" TemplateType="108" Url="Lists/Comments" MinorVersionLimit="0" MaxVersionLimit="1" DraftVersionVisibility="0" TemplateFeatureID="00bfea71-6a49-43fa-b535-d15c05500108" ContentTypesEnabled="true" EnableFolderCreation="false" DefaultDisplayFormUrl="{site}/Lists/Comments/DispForm.aspx" DefaultEditFormUrl="{site}/Lists/Comments/EditForm.aspx" DefaultNewFormUrl="{site}/Lists/Comments/NewForm.aspx" ImageUrl="/_layouts/15/images/itdisc.png?rev=44" IsApplicationList="false" ValidationFormula="" ValidationMessage="">
           <pnp:ContentTypeBindings>
             <pnp:ContentTypeBinding ContentTypeID="0x012002" Default="true" />
             <pnp:ContentTypeBinding ContentTypeID="0x0107" />
@@ -394,7 +390,6 @@
             <pnp:Property Key="Title" Value="Intranet - Accueil" />
             <pnp:Property Key="PublishingPageLayout" Value="{masterpagecatalog}/{parameter:CompanyName}/HomePageLayout.aspx, Home Page" />
             <pnp:Property Key="PublishingIsFurlPage" Value="False" />
-            <pnp:Property Key="RobotsNoIndex" Value="False" />
             <pnp:Property Key="IntranetContentLanguage" Value="FR" />
             <pnp:Property Key="IntranetContentAssociationKey" Value="1b1c9ffe-a909-45a2-a433-652a5daa9b7e" />
             <pnp:Property Key="HideSideBar" Value="1" />
@@ -793,7 +788,6 @@
             <pnp:Property Key="Title" Value="Recherche - Intranet" />
             <pnp:Property Key="PublishingPageLayout" Value="{masterpagecatalog}/{parameter:CompanyName}/SearchPageLayout.aspx,  Search Page" />
             <pnp:Property Key="PublishingIsFurlPage" Value="False" />
-            <pnp:Property Key="RobotsNoIndex" Value="False" />
             <pnp:Property Key="IntranetContentLanguage" Value="FR" />
             <pnp:Property Key="IntranetContentAssociationKey" Value="536cd959-6b02-4c86-b16f-c0d70d6c3039" />
             <pnp:Property Key="HideSideBar" Value="1" />
@@ -966,7 +960,6 @@
             <pnp:Property Key="Title" Value="Recherche - Documents" />
             <pnp:Property Key="PublishingPageLayout" Value="{masterpagecatalog}/{parameter:CompanyName}/SearchPageLayout.aspx,  Search Page" />
             <pnp:Property Key="PublishingIsFurlPage" Value="False" />
-            <pnp:Property Key="RobotsNoIndex" Value="False" />
             <pnp:Property Key="IntranetContentLanguage" Value="FR" />
             <pnp:Property Key="IntranetContentAssociationKey" Value="b078853e-22af-411c-aa00-a56b2d5dec75" />
             <pnp:Property Key="HideSideBar" Value="1" />
@@ -1139,7 +1132,6 @@
             <pnp:Property Key="Title" Value="Recherche - Personnes" />
             <pnp:Property Key="PublishingPageLayout" Value="{masterpagecatalog}/{parameter:CompanyName}/SearchPageLayout.aspx,  Search Page" />
             <pnp:Property Key="PublishingIsFurlPage" Value="False" />
-            <pnp:Property Key="RobotsNoIndex" Value="False" />
             <pnp:Property Key="IntranetContentLanguage" Value="FR" />
             <pnp:Property Key="IntranetContentAssociationKey" Value="643c65b1-aa50-43a7-b19e-b681b66e9fd1" />
             <pnp:Property Key="HideSideBar" Value="1" />
