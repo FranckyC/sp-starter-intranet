@@ -5,7 +5,7 @@
 <!--[if gte mso 9]><xml>
 <mso:CustomDocumentProperties>
 <mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
-<mso:ManagedPropertyMapping msdt:dt="string">'Link URL'{Link URL}:'Path','Title'{Title}:'Title','Posted Date'{Posted Date}:'IntranetPositionPostedDateOWSDATE','Closing Date'{Closing Date}:'IntranetPositionClosingDateOWSDATE','Job Description'{Job Description'}:'IntranetPositionDescriptionOWSMTXT','Job Description Link'{Job Description Link}:'IntranetPositionLinkOWSURLH','ContentTypeId'</mso:ManagedPropertyMapping>
+<mso:ManagedPropertyMapping msdt:dt="string">'Link URL'{Link URL}:'Path','Title'{Title}:'Title','Posted Date'{Posted Date}:'IntranetPositionPostedDate','Closing Date'{Closing Date}:'IntranetPositionClosingDate','Job Description'{Job Description'}:'IntranetPositionDescription','Job Description Link'{Job Description Link}:'IntranetPositionLink','ContentTypeId'</mso:ManagedPropertyMapping>
 <mso:MasterPageDescription msdt:dt="string">Displays notifications in a list format.</mso:MasterPageDescription>
 <mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
 <mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
@@ -32,7 +32,7 @@
 
         // Fill the current item properties to be able to use them is the Knockout viewmodel
         currentItem.Title = $getItemValue(ctx, "Title").inputValue;
-        currentItem.IntranetPositionLink = $getItemValue(ctx, "Job Description Link").inputValue ? $getItemValue(ctx, "Job Description Link").value[0].value : null;
+        currentItem.IntranetPositionLink = $getItemValue(ctx, "Job Description Link").inputValue;
         currentItem.IntranetPositionPostedDate = $getItemValue(ctx, "Posted Date").inputValue;
         currentItem.IntranetPositionClosingDate = $getItemValue(ctx, "Closing Date").inputValue;
         currentItem.IntranetPositionDescription = $getItemValue(ctx, "Job Description").inputValue;
