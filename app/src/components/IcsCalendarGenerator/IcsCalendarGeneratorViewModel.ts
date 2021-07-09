@@ -92,7 +92,10 @@ class IcsCalendarGeneratorViewModel {
             });
 
             // Try to build
-            const icsFileContent = builder.toString();
+            let icsFileContent = builder.toString();
+
+            // To get HTML content in Outlook clients (Web+Desktop) we use the specific property 'X-ALT-DESC;FMTTYPE=text/html' instead of 'DESCRIPTION'
+            icsFileContent = icsFileContent.replace('DESCRIPTION',`X-ALT-DESC;FMTTYPE=text/html:${item.PublishingPageContent}\r\nDESCRIPTION`);
 
             // Check if there was an error (Only required if yu configured to return error, else error will be thrown.)
             if (icsFileContent instanceof Error) {
