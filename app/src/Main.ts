@@ -31,6 +31,7 @@ import TopNavViewModel from "./components/TopNav/TopNavViewModel";
 import TranslationControlViewModel from "./components/TranslationControl/TranslationControlViewModel";
 import WelcomeOverlayViewModel from "./components/WelcomeOverlay/WelcomeOverlayViewModel";
 import LocalizationModule from "./modules/LocalizationModule";
+import AlertButtonViewModel from "./components/AlertButton/AlertButtonViewModel";
 import UtilityModule from "./modules/UtilityModule";
 
 // Third party libraries
@@ -277,6 +278,11 @@ export class Main {
         const commentsTemplate = require("./components/Comments/Comments.html");
         require("./components/Comments/Comments.scss");
         const commentsComponent = new BaseKnockoutComponent("component-comments", CommentsViewModel, commentsTemplate);
+
+        // Component: "Alert button"
+        const alertButtonTemplate = require("./components/AlertButton/AlertButton.html");
+        require("./components/AlertButton/AlertButton.scss");
+        const alertButtonComponent = new BaseKnockoutComponent("component-alertme", AlertButtonViewModel, alertButtonTemplate);
     }
 
     public registerBindingHandlers() {

@@ -11,6 +11,8 @@
     "existingTranslations" : "One or more translations already exist for this page and for the selected language '%s':",
     "successTranslationCreation" : "Your '%s' translation has been created successfully",
     "breadcrumbErrorMessage" : "Warning: this page is not mapped to a taxonomy navigation term.",
+    "alertBtnLabel": "Follow this page",
+    "alertBtnDesc": "Add a new alert on this page to get notified when it gets updated",    
     "selectLanguageMessage" : "Select a language:",
     "selectPageNameMessage" : "Page name (file URL)",
     "invalidFilenameMessage": "The file name is invalid. You can't use special characters \" # % * : < > ? \\ / | or use the same name of the current page.",

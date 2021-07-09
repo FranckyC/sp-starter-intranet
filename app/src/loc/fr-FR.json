@@ -11,6 +11,8 @@
     "existingTranslations" : "Une ou plusieurs traductions pour cette page existent déjà pour la langue sélectionnée '%s':",
     "successTranslationCreation" : "Votre traduction '%s' a été créée avec succès",
     "breadcrumbErrorMessage" : "Attention: cette page n'est pas reliée à un terme de navigation.",
+    "alertBtnLabel": "Suivre cette page",
+    "alertBtnDesc": "Ajoutez une nouvelle alerte sur cette page lorsque celle-ci est modifiée", 
     "selectLanguageMessage" : "Sélectionnez une langue:",
     "selectPageNameMessage" : "Nom de la page (URL du fichier)",
     "invalidFilenameMessage": "Le nom de fichier est invalide. Vous ne pouvez pas utiliser les caractères spéciaux \" # % * : < > ? \\ / | ou utiliser le même nom que la page courante.",
