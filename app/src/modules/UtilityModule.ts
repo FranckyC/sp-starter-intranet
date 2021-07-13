@@ -8,6 +8,8 @@ import ConfigurationItem from "../models/ConfigurationItem";
 import IConfigurationItem from "../models/IConfigurationItem";
 import TaxonomyNavigationNode from "../models/TaxonomyNavigationNode";
 
+const USER_AGENT = "NONISV|PnP|SPOStarterIntranet/1.0";
+
 class UtilityModule {
 
     /**
@@ -280,6 +282,14 @@ class UtilityModule {
         const p = new Promise<string>((resolve, reject) => {
             SP.SOD.executeFunc("sp.js", "SP.ClientContext", () => {
                 const clientContext = SP.ClientContext.get_current();
+
+                // Avoid throttling in SPO
+                clientContext.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+                    // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+                    const webRequest = args.get_webRequest(); 
+                    webRequest.get_headers()['User-Agent'] = USER_AGENT;
+                    webRequest.get_headers()['UserAgent'] = USER_AGENT;
+                });
 
                 clientContext.executeQueryAsync(() =>  {
                     resolve(clientContext.get_serverVersion());

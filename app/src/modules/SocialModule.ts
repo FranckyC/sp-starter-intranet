@@ -7,6 +7,8 @@ import pnp, { CamlQuery, ICachingOptions, PermissionKind, setup, Web, Logger, Lo
 import IDiscussion from "../models/IDiscussion";
 import { DiscussionPermissionLevel, IDiscussionReply } from "../models/IDiscussionReply";
 
+const USER_AGENT = "NONISV|PnP|SPOStarterIntranet/1.0";
+
 class SocialModule {
 
     private discussionListServerRelativeUrl: string;
@@ -51,6 +53,15 @@ class SocialModule {
         const p = new Promise<IDiscussion>((resolve, reject) => {
 
             const context = SP.ClientContext.get_current();
+
+            // Avoid throttling in SPO
+            context.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+                // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+                const webRequest = args.get_webRequest(); 
+                webRequest.get_headers()['User-Agent'] = USER_AGENT;
+                webRequest.get_headers()['UserAgent'] = USER_AGENT;
+            });
+
             const list = context.get_web().getList(this.discussionListServerRelativeUrl);
 
             const reply = SP.Utilities.Utility.createNewDiscussion(context, list, discussionTitle);
@@ -92,6 +103,15 @@ class SocialModule {
         const p = new Promise<IDiscussionReply>((resolve, reject) => {
 
             const context = SP.ClientContext.get_current();
+
+            // Avoid throttling in SPO
+            context.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+                // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+                const webRequest = args.get_webRequest(); 
+                webRequest.get_headers()['User-Agent'] = USER_AGENT;
+                webRequest.get_headers()['UserAgent'] = USER_AGENT;
+            });
+
             const list = context.get_web().getList(this.discussionListServerRelativeUrl);
             const parentItem = list.getItemById(parentItemId);
 
@@ -333,6 +353,15 @@ class SocialModule {
 
         const p = new Promise<number>((resolve, reject) => {
             const context = SP.ClientContext.get_current();
+
+            // Avoid throttling in SPO
+            context.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+                // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+                const webRequest = args.get_webRequest(); 
+                webRequest.get_headers()['User-Agent'] = USER_AGENT;
+                webRequest.get_headers()['UserAgent'] = USER_AGENT;
+            });
+
             Microsoft.Office.Server.ReputationModel.Reputation.setLike(context, parentListId, itemId, isLiked);
             context.executeQueryAsync((sender, args) => {
 

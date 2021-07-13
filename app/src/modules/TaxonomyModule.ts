@@ -8,6 +8,8 @@ import ITaxonomyNavigationNode from "../models/ITaxonomyNavigationNode";
 import TaxonomyNavigationNode from "../models/TaxonomyNavigationNode";
 import LocalizationModule from "./LocalizationModule";
 
+const USER_AGENT = "NONISV|PnP|SPOStarterIntranet/1.0";
+
 class TaxonomyModule {
 
     private workingLanguage: number;
@@ -60,6 +62,14 @@ class TaxonomyModule {
 
         const context: SP.ClientContext = SP.ClientContext.get_current();
 
+        // Avoid throttling in SPO
+        context.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+            // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+            const webRequest = args.get_webRequest(); 
+            webRequest.get_headers()['User-Agent'] = USER_AGENT;
+            webRequest.get_headers()['UserAgent'] = USER_AGENT;
+        });
+
         const taxSession: SP.Taxonomy.TaxonomySession  = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
         const termStore: SP.Taxonomy.TermStore = taxSession.getDefaultSiteCollectionTermStore();
 
@@ -94,6 +104,15 @@ class TaxonomyModule {
     public getNavigationTaxonomyNodes(termSetId: SP.Guid): Promise<ITaxonomyNavigationNode[]> {
 
         const context: SP.ClientContext = SP.ClientContext.get_current();
+
+        // Avoid throttling in SPO
+        context.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+            // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+            const webRequest = args.get_webRequest(); 
+            webRequest.get_headers()['User-Agent'] = USER_AGENT;
+            webRequest.get_headers()['UserAgent'] = USER_AGENT;
+        });
+       
         const currentWeb: SP.Web = SP.ClientContext.get_current().get_web();
 
         const taxSession: SP.Taxonomy.TaxonomySession  = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
@@ -158,6 +177,14 @@ class TaxonomyModule {
         if (termId) {
 
             const context: SP.ClientContext = SP.ClientContext.get_current();
+
+            // Avoid throttling in SPO
+            context.add_executingWebRequest((sender: any, args: SP.WebRequestEventArgs) => {
+                // https://stackoverflow.com/questions/33047426/how-can-i-determine-if-a-sharepoint-listitem-exists-based-on-a-couple-of-known-v
+                const webRequest = args.get_webRequest(); 
+                webRequest.get_headers()['User-Agent'] = USER_AGENT;
+                webRequest.get_headers()['UserAgent'] = USER_AGENT;
+            });
 
             const taxSession: SP.Taxonomy.TaxonomySession  = SP.Taxonomy.TaxonomySession.getTaxonomySession(context);
             const termStore: SP.Taxonomy.TermStore = taxSession.getDefaultSiteCollectionTermStore();
